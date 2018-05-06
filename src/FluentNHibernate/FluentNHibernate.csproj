@@ -1,40 +1,42 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  
+
   <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net461;netcoreapp2.0</TargetFrameworks>
     <NoWarn>1591</NoWarn>
     <PlatformTarget>AnyCpu</PlatformTarget>
     <OutputType>Library</OutputType>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>    
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup>
     <Description>FluentNHibernate</Description>
   </PropertyGroup>
-  
-  <Import Project="$(MSBuildThisFileDirectory)..\Shared.msbuild" />
-  
+
+
   <PropertyGroup>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  
+
+  <Import Project="$(MSBuildThisFileDirectory)..\Shared.msbuild" />
+
   <ItemGroup>
-    <PackageReference Include="NHibernate" Version="5.0.3" />    
+    <PackageReference Include="NHibernate" Version="5.1.1" />
   </ItemGroup>
-  
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
     <Reference Include="System.configuration" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
-    </Compile>  
+    </Compile>
     <None Include="..\FluentKey.snk">
       <Link>FluentKey.snk</Link>
     </None>
   </ItemGroup>
+
 </Project>
